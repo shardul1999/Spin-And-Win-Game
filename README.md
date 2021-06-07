@@ -1,59 +1,33 @@
 # Spin-And-Win-Game
 
 ### Phaser is a framework that helps us in building a game.
+In this game, I have used a concept called tween effect. A Tween allows you to alter one or more properties of a target object over a defined period of time.
+This can be used for things such as alpha fading Sprites, scaling them or motion. I have used this mainly to deal with the effects we can apply on the spinning wheel. Parameters in tween class includes targets, motion type, scaling, etc. <br>
+Inorder to use the functions of phaser, we are required to include the file phaser.js in the main html file of the application.<br>
 
+Important Points: -
+<ul>
+<li>We don't need to use the canvas tag in the html file. We can deal with it using the phaser functions in the js file instead.</li>
+<li>In Phaser, 
+	<ul>
+	<li>Images can be added using the sprite() function.</li>
+	<li>Their position can be set using setPosition() funciton.</li>
+	<li>And scaling can be done using the setScale() function.</li>
+	</ul>
+</li>
+<li>Tween class can be used to deal with the fade, sprite, scale or motion of an object in the canvas.
+	<ul><li>In order to use the this(/game) function or properties we are required to specify it in the callbackScope attribute of tween class.</li><ul>
+</li></ul></ul>
 
-game object k andr config object hoga which will contain the metadata of the game like kitne scene honge(meaning displays kitne honge and height kya hogi width kya hogi etc etc).
-canvas toh config object mei create hojayega instead of html mei krna. or canvas ki height width wahi mention kr skte hain. "BackgroundColor"
-
-scene means a level of the game. It consists of 3 main parts: loading the assets, creating and displaying,  updating continuously.
-scene ki class banadena and as functions rkhdena usme inh teeno ko.
-
-image is added in phaser using the sprite function.
-let background=this.add.sprite(x,y,image_name);
-background.position(W/2,H/2);
-background.setScale(0.20) \\20% scaling of image
-background.scaleX=2; //same as set scale but this is specifically for X coordinate. same with scaleY
-//jab hum koi image baad mei load krenge canvas pr toh wo baakiyo k uppr hogi if you know what i mean.
-
-"this" is referred to as scene object.
-
-this term likkhkr kisi bhi img k variable ko scene ka object bana skte hain 
-for eg this.wheel = this.add.sprite(...);
-
-this.wheel.alpha=0.5; // for intensity.
-alpha=1 opaque and 0 for invisible
-in update we can try following stuff: -
-
-this.wheel.angle+=1;
-this.wheel.scaleX+=0.001;
-this.wheel.scaleY+=0.001;
-
-
-// event listener for mouse click
-this.input.on("pointerdown",spinwheel,this);
-
-tween effect
-A Tween is able to manipulate the properties of one or more objects to any given value, based on a duration and type of ease.
-tween = this.tweens.add({
-        targets: this.wheel,  // desired object to deal with
-        alpha: 0.1,  //itne pr aajayega dheere dheere iska yeh mtlb hai
-        delay: 2000,  //itne time k baad start ho event
-        duration: 8000, //itni der mei pura hoga event
-		    ease: "Cubic.easeOut",  // ease out mtlb end tak aate aate speed slow hojaye instead of stopping instantly.
-        onComplete:function(){
-			console.log("jeet gye aap sir");   //event complete hone pr
-		  }
-    });
-
-GOALS: -
-creating a game using phaser
-game loop in phaser
-add images
-event listeners
-animations
-arrays
-mathematics
-sounds
-OOPs
-and more.
+<li>For putting the text on the phaser canvas: -<p>
+	this.gametext=this.add.text(x,y,"...",font class name);</p>
+</li>
+<li>Usually a game is made up of multiple scenes, but this being a basic one doesn't need more than one scene. "this" keyword is used to point to an object similarly it has been used to access the scene/game object mostly.
+</li>	
+<li> Scope of Improvement: -
+	<ul><li>UI can be improved. E.g More features can be added to it.</li>
+	<li>Some unique/funny/interesting type of spinning wheel can be used instead of the one I have used in this. </li>
+	<li>Multiple scenes can be added to the game.</li>
+	
+</li>
+	</ul>
