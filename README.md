@@ -1,10 +1,9 @@
 # Spin-And-Win-Game
-
+#### Phaser has been used in creating this game. Phaser is a 2D game framework used for making HTML5 games for desktop and mobile.
 <p align="center">
 <img src="assets/game3.gif" width="800">
 </p>
 
-### Phaser is a framework that helps us in building a game.
 In this game, I have used a concept called tween effect. A Tween allows you to alter one or more properties of a target object over a defined period of time.
 This can be used for things such as alpha fading Sprites, scaling them or motion. I have used this mainly to deal with the effects we can apply on the spinning wheel. Parameters in tween class includes targets, motion type, scaling, etc. <br>
 Inorder to use the functions of phaser, we are required to include the file phaser.js in the main html file of the application.<br>
