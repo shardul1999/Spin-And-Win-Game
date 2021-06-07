@@ -21,20 +21,22 @@ let config = {
 let game = new Phaser.Game(config);
 
 function preload(){
-	console.log("preload");
-	this.load.image('hehe','assets/img1.jpeg');
+	//console.log("preload");
+	this.load.image('background','assets/img1.jpeg');
 	this.load.image('hehe1','assets/img3.png');
 	this.load.image('hehe2','assets/img_stand.png');
 	this.load.image('hehe3','assets/img_wheel1.png');
 	console.log(this);
 }
+
+
 function create(){
 
 	let W=game.config.width;
 	let H=game.config.height;
 	
-	console.log("create");
-	let background = this.add.sprite(0,0,'hehe');
+	//console.log("create");
+	let bg = this.add.sprite(0,0,'background');
 	let stand = this.add.sprite(0,0,'hehe2');
 	this.wheel = this.add.sprite(0,0,'hehe3');
 
@@ -42,15 +44,15 @@ function create(){
 	this.wheel.setPosition(W/2,H/2-30);
 	stand.setPosition(W/2,H/2+330);
 	pin.setPosition(W/2,H/2-300);
-	background.setScale(2);
+	bg.setScale(2);
 	pin.setScale(0.35);
 	stand.setScale(0.6)
 	this.wheel.setScale(0.57);
-	//this.wheel.alpha=0.5; // for intensity.
 
+	//this.wheel.alpha=0.5; // for intensity.
 	// event listener for mouse click
 	this.input.on("pointerdown",spinwheel,this);
-
+	
 	font1={
 		font: "bold 50px roboto",
 		align: "center",
@@ -74,8 +76,10 @@ function update(){
 	//this.wheel.alpha-=0.0005;
 }
 
-function spinwheel()
+function spinwheel(e)
 {
+	const element = e.downElement;
+    element.style.pointerEvents = 'none';
 	let rounds=Phaser.Math.Between(2,5)*360;
 	let col=Phaser.Math.Between(0,11);
 	let degrees=col*30;
@@ -97,7 +101,9 @@ function spinwheel()
         // },
 		onComplete:function(){
 			this.gametext.setText("Congrats!! You won: "+wins.winning[col]+"€");
-			console.log("jeet gye aap sir"+wins.winning[col]);
+			console.log("jeet gye aap sir"+wins.winning[col]); 
+			element.style.pointerEvents = 'all';
 		},
     });
+	//setTimeout(function(){ alert("Hello"); }, 6000);
 }
